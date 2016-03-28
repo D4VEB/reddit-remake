@@ -1,12 +1,12 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
+from django.core.validators import MinLengthValidator
 
 
 class Subreddit (models.Model):
-
     title = models.CharField(max_length=300)
-    description = models.TextField()
+    description = models.TextField(validators=[MinLengthValidator(225)])
     creation_date = models.DateTimeField(auto_now=True)
 
     @property
@@ -38,7 +38,7 @@ class Subreddit (models.Model):
 class Post(models.Model):
 
     title = models.CharField(max_length=300)
-    description = models.TextField()
+    description = models.TextField(validators=[MinLengthValidator(225)])
     url = models.URLField(max_length=300)
     slug = models.SlugField(max_length = 100)
     creation_time = models.DateTimeField(auto_now_add=True)
@@ -64,7 +64,7 @@ class Post(models.Model):
         return recent_posts.count() >= 3
 
 class Comment(models.Model):
-    comment_text = models.TextField()
+    comment_text = models.TextField(validators=[MinLengthValidator(225)])
     user = models.ForeignKey(User)
     post = models.ForeignKey(Post)
     created_time = models.DateTimeField(auto_now_add=True)
