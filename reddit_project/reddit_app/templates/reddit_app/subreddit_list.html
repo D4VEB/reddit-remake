@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Subreddit List</title>
+    </head>
+    <body>
+        <h1>Subreddit List</h1>
+            <ul>
+                {% for subreddit in subreddits %}
+
+                    <li><a href="{% url 'subreddit_details' subreddit.id %}">
+                    {{ subreddit.title }} </a> about {{ subreddit.description }} at
+                    {{ subreddit.creation_date }}</li>
+                    <li>Number of Posts in Subreddit: {{ subreddit.post_count }}</li>
+                {%  endfor %}
+        </ul>
+    </body>
+</html>

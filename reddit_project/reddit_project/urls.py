@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls import url, include
+from django.contrib import admin
 
 urlpatterns = [
+    url(r'^reddit_app', include("reddit_app.urls")),
     url(r'^admin/', admin.site.urls),
 ]

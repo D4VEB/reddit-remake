@@ -1,10 +1,11 @@
 from django.db import models
 import datetime
+from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator
 
 
-class Subreddit (models.Model):
+class Subreddit(models.Model):
     title = models.CharField(max_length=300)
     description = models.TextField(validators=[MinLengthValidator(225)])
     creation_date = models.DateTimeField(auto_now=True)
