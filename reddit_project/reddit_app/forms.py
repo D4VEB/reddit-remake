@@ -1,7 +1,7 @@
 from reddit_app.models import Subreddit
 from django import forms
 
-class NewSubredditForm(forms.ModelForm):
+class SubredditForm(forms.ModelForm):
 
     class Meta:
         model = Subreddit

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>subreddit.title</title>
 </head>
     <body>
     
@@ -10,8 +10,10 @@
     <h2>Description: {{ subreddit.description }}</h2>
     <h3>Recent Posts (limited to 20):</h3>
         <ul>
-            {% for posts in posts %}
-            <li> # need to show posts from SubredditDetail class</li>
+            {% for post in posts %}
+            <li> <a href="{%  url 'post_detail' post.id %}">
+                {{ post.title }}</a> by {{ post.user }} at
+                {{ post.creation_time }} </li>
             {% endfor %}
             
         </ul>

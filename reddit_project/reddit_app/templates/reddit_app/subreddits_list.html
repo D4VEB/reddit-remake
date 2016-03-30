@@ -9,7 +9,7 @@
             <ul>
                 {% for subreddit in subreddits %}
 
-                    <li><a href="{% url 'subreddit_details' subreddit.id %}">
+                    <li><a href="{% url 'subreddit_detail' subreddit.id %}">
                     {{ subreddit.title }} </a> about {{ subreddit.description }} at
                     {{ subreddit.creation_date }}</li>
                     <li>Number of Posts in Subreddit: {{ subreddit.post_count }}</li>
