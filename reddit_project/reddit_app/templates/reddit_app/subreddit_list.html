@@ -7,25 +7,31 @@
     <body>
         <h1>Subreddit List</h1>
             <ul>
-                {% for subreddit in subreddits %}
+                {% for subreddit in subreddit_list %}
 
                     <li><a href="{% url 'subreddit_detail' subreddit.id %}">
                     {{ subreddit.title }} </a> about {{ subreddit.description }} at
                     {{ subreddit.creation_date }}</li>
-                    <li>Number of Posts in Subreddit: {{ subreddit.post_count }}</li>
+
+                    <h3>Number of Posts in Subreddit: {{ subreddit.current_count }}</h3>
                 {%  endfor %}
             </ul>
 
             {% if is_paginated %}
                 {% if page_obj.has_previous %}
-                    <a href="{% url "subreddits_list" %}?page={{ page_obj.previous_page_number }}"><--Prev</a>
+                    <a href="{% url "subreddit_list" %}?page={{ page_obj.previous_page_number }}"><--Prev</a>
                 {% endif %}
                 {{ page_obj }}
                 {% if page_obj.has_next %}
-                    <a href="{% url "subreddits_list" %}?page={{ page_obj.next_page_number }}">Next--></a>
+                    <a href="{% url "subreddit_list" %}?page={{ page_obj.next_page_number }}">Next--></a>
+                {% endif %}
+
             {% endif %}
 
-        {% endif %}
+    <div>
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    </div>
 
     </body>
 </html>

@@ -6,10 +6,10 @@
 </head>
     <body>
         <h1>Update Subreddit</h1>
-        <form method="post" action="{% url "update_subreddit" subreddit.id %}">
+        <form method="post" action="{% url "subreddit_update" subreddit.id %}">
             {% csrf_token %}
             {{ form.as_ul }}
-            <input type="submit" name="submit" value="Subreddit Updated">
+            <input type="submit" name="submit" value="Update this Subreddit!">
         </form>
 
     </body>

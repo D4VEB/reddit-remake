@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^reddit_app/', include("reddit_app.urls")),
     url(r'^logout/$', logout, {'next_page': reverse_lazy('subreddits_list')}, name='logout'),
     url('^', include('django.contrib.auth.urls'))
+
 ]
