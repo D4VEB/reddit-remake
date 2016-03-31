@@ -14,6 +14,18 @@
                     {{ subreddit.creation_date }}</li>
                     <li>Number of Posts in Subreddit: {{ subreddit.post_count }}</li>
                 {%  endfor %}
-        </ul>
+            </ul>
+
+            {% if is_paginated %}
+                {% if page_obj.has_previous %}
+                    <a href="{% url "subreddits_list" %}?page={{ page_obj.previous_page_number }}"><--Prev</a>
+                {% endif %}
+                {{ page_obj }}
+                {% if page_obj.has_next %}
+                    <a href="{% url "subreddits_list" %}?page={{ page_obj.next_page_number }}">Next--></a>
+            {% endif %}
+
+        {% endif %}
+
     </body>
 </html>

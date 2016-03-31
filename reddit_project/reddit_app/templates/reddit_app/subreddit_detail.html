@@ -9,6 +9,7 @@
     <h1>Subreddit Title: {{ subreddit.title }}</h1>
     <h2>Description: {{ subreddit.description }}</h2>
     <h3>Recent Posts (limited to 20):</h3>
+    # Need to use annotate here
         <ul>
             {% for post in posts %}
             <li> <a href="{%  url 'post_detail' post.id %}">

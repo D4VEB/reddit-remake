@@ -1,6 +1,7 @@
 from reddit_app.views import SubredditsList, SubredditDetail, PostDetail, \
     AddSubreddit, UpdateSubreddit
 from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     url(r'^subredditslist/$', SubredditsList.as_view(), name="subreddits_list"),
